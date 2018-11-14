@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>지출 내역 확인</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript">
+    let amount = new Array;
+
+    function text_add(num, num2) {
+    let total_ta = document.getElementById('total_text');
+    let t1 = document.getElementById('text1').value;
+    let t2 = document.getElementById('text2').value;
+
+    let adt1 = eval('t' + num);
+    let adt2 = eval('t' + num2);
+    let adt = adt1 + '   ' + adt2 + '원\n';
+    total_ta.value += adt;
+
+    amount.push(parseFloat(t2));
+
+    let amount_money = 0;
+    for (let i = 0; i < amount.length; i++)
+      amount_money += amount[i];
+    document.getElementById('amount_money').innerText = amount_money;
+  }
+  </script>
+</head>
+<body>
+  <div>
+      <input type="text" name="" id="text1" placeholder="분류"></input>
+      <input type="number" name="" id="text2" placeholder="금액"></input>원
+      <button onclick='text_add(1, 2);'>입력</button>
+  </div>
+  <textarea name="" id="total_text" cols="150" rows="10"></textarea>
+  <p>총 지출 금액은 <span id="amount_money"></span>원 입니다.</p>
+</body>
+</html>
